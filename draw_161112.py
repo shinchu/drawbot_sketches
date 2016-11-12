@@ -69,6 +69,7 @@ if __name__ == "__main__":
     drawGrid(width, height, pixel_size, numbers)
 
     pixel_addresses = [(4, 3), (5,3), (6, 3), (8, 3), (3, 4), (5, 4), (7, 4), (4, 5), (5, 5), (6, 5), (8, 5), (5, 6), (3, 7), (4, 7), (5, 7), (6, 7), (7, 7), (8, 7), (5, 8)]
+    random.shuffle(pixel_addresses)
 
     duration = 1 / 30
 
