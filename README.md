@@ -1,5 +1,15 @@
 # DrawBot sketches
 
+[http://typeandcode.tumblr.com/](http://typeandcode.tumblr.com/)
+
 Glyphs and other stuff drawn with Python in [DrawBot](http://www.drawbot.com/), inspired by [Daily DrawBot](http://dailydrawbot.tumblr.com/) and [DrawBot Exercises](http://drawbot-exercises.tumblr.com/).
 
-[http://typeandcode.tumblr.com/](http://typeandcode.tumblr.com/).
+## Instruction
+- Requires [DrawBot.app](http://www.drawbot.com/content/download.html) and [drawBot](https://github.com/typemytype/drawbot) as Python module.
+
+``` bash
+git clone git@github.com:typemytype/drawbot.git
+cd drawbot
+python setupAsModule.py install
+```
+
