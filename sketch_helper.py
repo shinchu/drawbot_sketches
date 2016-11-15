@@ -83,6 +83,18 @@ def getCPoint(t, (x1, y1), (x2, y2), (x3, y3), (x4, y4)):
     return x, y
 
 
+# colors
+# cream = hexToRGB("FEF3DB")
+# midnight = hexToRGB("353C5C")
+# red = hexToRGB("E6333E")
+# magenda = hexToRGB("E5326B")
+# orange = hexToRGB("ED7B26")
+# cyan = hexToRGB("41AFC9")
+# blue = hexToRGB("3096F0")
+# purple = hexToRGB("A94CBB")
+# green = hexToRGB("44A87E")
+
+
 def drawHandle(path, r):
 
     for contour in path:
@@ -98,8 +110,8 @@ def drawHandle(path, r):
             else:
                 point = segment[0]
 
-    point_color = hexToRGB("41AFC9")
-    handle_color = hexToRGB("A94CBB")
+    point_color = hexToRGB("A94CBB")
+    handle_color = hexToRGB("41AFC9")
 
     stroke(None)
 

@@ -81,7 +81,7 @@ stroke(0.3)
 fill(0.9)
 drawGrid(CANVAS, CANVAS, SIZE, NUMBERS)
 
-translate(0, (CANVAS-SIZE*NUMBERS)/2)
+translate(0, (CANVAS - SIZE * NUMBERS) / 2)
 fill(0.7)
 stroke(0.2)
 strokeWidth(1)
