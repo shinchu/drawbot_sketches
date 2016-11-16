@@ -5,12 +5,12 @@ from sketch_helper import *
 
 CANVAS = 500
 NUMBERS = 10
-FRAMES = 25
-DURATION = 1 / 20
-X = 110
-Y = 90
 H = 50
 MARGIN = 30
+FRAMES = 25
+DURATION = 1 / 20
+X = (CANVAS - NUMBERS * MARGIN) / 2
+Y = (CANVAS - NUMBERS * MARGIN) / 2
 
 cream = hexToRGB("FEF3DB")
 midnight = hexToRGB("353C5C")
@@ -53,5 +53,5 @@ for n in range(FRAMES):
             drawPath(B)
         
         restore()
-    
+
 saveSketch("draw")
