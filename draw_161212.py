@@ -64,8 +64,8 @@ for n in range(len(yValues)):
         for x in range(int(xMin), int(xMax), DIST):
             if pen.pointInside((x, y)):
                 fill(None)
-                strokeWidth(1.5)
-                stroke(uniform(0.9, 1), uniform(0.9, 1), 0)
+                strokeWidth(2)
+                stroke(1, uniform(0.9, 1), 0)
                 rect(x, y, DIST, DIST)
 
 saveSketch("draw")
