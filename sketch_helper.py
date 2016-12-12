@@ -4,6 +4,7 @@ import os
 import datetime
 from drawBot import *
 from robofab.world import *
+from robofab.pens.pointPen import PrintingSegmentPen
 
 def hexToRGB(hex_value):
 
@@ -158,3 +159,9 @@ def drawGlyph(x, y, sc, ufo, glyphs):
         translate(x, y)
         drawPath(B)
 
+
+def getPath(ufo, glyph):
+    font = RFont(ufo)
+    g = font[glyph]
+    pen = PrintingSegmentPen()
+    g.draw(pen)
