@@ -43,7 +43,7 @@ xMin, yMin, xMax, yMax = pen_x, pen_y, pen_x + pen_width, pen_y + pen_height
 
 yValues = range(int(yMin), int(yMax), DIST)
 
-for n in range(len(yValues)):
+for n in range(len(y_values)):
     
     newPage(CANVAS, CANVAS)
     
@@ -57,7 +57,7 @@ for n in range(len(yValues)):
 
     frameDuration(DURATION)
     
-    if n == len(yValues)-1:
+    if n == len(y_values)-1:
         frameDuration(DURATION*10)
 
     for y in range(yValues[0], yValues[n], DIST):
