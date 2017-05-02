@@ -48,7 +48,7 @@ def drawPixel(width, height, size, numbers, pixel_address):
 def saveSketch(filename):
 
     date = str(datetime.date.today().strftime("%y%m%d"))
-    filename = filename + "_" + date
+    filename = "/Users/shu/Downloads/" + filename + "_" + date
     suffix = 2
 
     if os.path.exists(filename + ".gif"):
@@ -88,12 +88,12 @@ def getCPoint(t, (x1, y1), (x2, y2), (x3, y3), (x4, y4)):
 # cream = hexToRGB("FEF3DB")
 # midnight = hexToRGB("353C5C")
 # red = hexToRGB("E6333E")
-# magenda = hexToRGB("E5326B")
+# magenta = hexToRGB("E5326B")
 # orange = hexToRGB("ED7B26")
+# green = hexToRGB("44A87E")
 # cyan = hexToRGB("41AFC9")
 # blue = hexToRGB("3096F0")
 # purple = hexToRGB("A94CBB")
-# green = hexToRGB("44A87E")
 
 
 def drawHandle(path, r):
