@@ -21,4 +21,4 @@ for x in xrange(0, width()-xstep, xstep):
     fill(random(), random(), random(), 0.3)
     oval(width()-x, (height()-x)/2, x, x)
 
-savePNG("draw")
+# savePNG("draw")
