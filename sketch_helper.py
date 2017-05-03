@@ -58,6 +58,18 @@ def saveSketch(filename):
     else:
         saveImage(filename + ".gif")
 
+def savePNG(filename):
+
+    date = str(datetime.date.today().strftime("%y%m%d"))
+    filename = "/Users/shu/Downloads/" + filename + "_" + date
+    suffix = 2
+
+    if os.path.exists(filename + ".png"):
+        while os.path.exists(filename + "_" + str(suffix) + ".png"):
+            suffix += 1
+        saveImage(filename + "_" + str(suffix) + ".png")
+    else:
+        saveImage(filename + ".png")
 
 # quadratic bezier formula
 def B1(t): return (1-t)*(1-t)

@@ -34,5 +34,3 @@ while diam <= 400:
         tempdiam -= 10
 
     diam += 10
-
-saveImage("/Users/shu/Downloads/test.gif")

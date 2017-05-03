@@ -5,7 +5,6 @@ from fontTools.pens.basePen import BasePen
 
 # Define this so we can use TrueType-style quadratic curves. Ideal for blobbies!
 class BezierPathPen(BasePen):
-    """FontTools pen -> BezierPath adapter."""
     def __init__(self, glyphSet, bezPath):
         super(BezierPathPen, self).__init__(glyphSet)
         self.bezPath = bezPath
@@ -40,7 +39,7 @@ def drawBlob(blobPhase, blobRadius):
     p.closePath()
     drawPath(bezPath)
 
-seed(0)  # Ok ok, make this animation predictable.
+seed(1)  # Ok ok, make this animation predictable.
 numBlobPoints = 5
 randomPhases = [(2 * pi * random(), choice([-1, 1])) for i in range(numBlobPoints)]
 
@@ -62,5 +61,3 @@ for frame in range(nFrames):
         blobPhase = i / nBlobs
         radius = 5 + i * 5
         drawBlob(framePhase + blobPhase * 0.75, radius)
-
-saveImage("/Users/shu/Downloads/test.gif")
