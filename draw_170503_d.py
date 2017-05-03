@@ -11,7 +11,7 @@ size(canvas, canvas)
 for i in xrange(margin, canvas-margin, step):
     for j in xrange(margin, canvas-margin, step):
         fill(j/(canvas-margin), i/(canvas-margin), 0.7, 1)
-        rect(i, j*random(), step, step)
-        rect(i*random(), height()-(j*random()), step, step)
+        rect(i, j*random()+margin, step, step)
+        rect(i*random()+margin, height()-margin-(j*random()), step, step)
         
-savePNG("draw")
+# savePNG("draw")
