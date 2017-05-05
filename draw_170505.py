@@ -16,25 +16,25 @@ centx = width()/2
 centy = height()/2
 
 stroke(0)
-strokeWidth(1)
+strokeWidth(1.5)
 
-for i in xrange(20):
+for i in xrange(5):
     
     # stroke(random(), random(), random(), random())
-    # strokeWidth(uniform(0.1, 1))
+    # strokeWidth(uniform(1, 2))
     
     lastx = -999
     lasty = -999
-    radius = 30
-    radius_noise = uniform(5, 20)
+    radius = 140
+    radius_noise = uniform(0, 10)
 
     start_angle = randint(0, 360)
     end_angle = 1440 + randint(0, 1440)
-    angle_step = 10 + randint(0, 5)
+    angle_step = 1 + randint(0, 10)
 
     for angle in xrange(start_angle, end_angle, angle_step):
-        radius += 0.4
-        radius_noise += 0.1
+        radius += 0.05
+        radius_noise += 0.06
         this_radius = radius + (pnoise1(radius_noise) * 80) - 10
         x = centx + cos(radians(angle)) * this_radius
         y = centy + sin(radians(angle)) * this_radius
@@ -43,5 +43,5 @@ for i in xrange(20):
         lastx = x
         lasty = y
 
-# saveSketch("draw")
+saveSketch("draw")
         
