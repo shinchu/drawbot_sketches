@@ -35,6 +35,7 @@ for n in xrange(frames):
         fill(1, 0.6)
         oval(margin+random()*(width()-2*margin)-n*dist*0.6-point/2, margin+random()*(height()-2*margin)-point/2, point, point) 
         fill(1, 0.3*alpha)
+        # fill(1, 0.3)
         oval(margin+random()*(width()-2*margin)-n*dist-point/2, margin+random()*(height()-2*margin)-point/2, point, point)
          
 saveSketch("draw")
