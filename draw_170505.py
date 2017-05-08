@@ -8,7 +8,7 @@ canvas = 500
 
 size(canvas, canvas)
 
-fill(1)
+fill(0.9)
 rect(0, 0, width(), height())
 
 
@@ -18,14 +18,14 @@ centy = height()/2
 stroke(0)
 strokeWidth(1.5)
 
-for i in xrange(5):
+for i in xrange(3):
     
-    # stroke(random(), random(), random(), random())
+    # stroke(0, random())
     # strokeWidth(uniform(1, 2))
     
     lastx = -999
     lasty = -999
-    radius = 140
+    radius = 90
     radius_noise = uniform(0, 10)
 
     start_angle = randint(0, 360)
@@ -35,7 +35,7 @@ for i in xrange(5):
     for angle in xrange(start_angle, end_angle, angle_step):
         radius += 0.05
         radius_noise += 0.06
-        this_radius = radius + (pnoise1(radius_noise) * 80) - 10
+        this_radius = radius + (pnoise1(radius_noise) * 50) - 0
         x = centx + cos(radians(angle)) * this_radius
         y = centy + sin(radians(angle)) * this_radius
         if lastx > -999:
@@ -43,5 +43,5 @@ for i in xrange(5):
         lastx = x
         lasty = y
 
-saveSketch("draw")
+# saveSketch("draw")
         
