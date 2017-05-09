@@ -5,7 +5,7 @@ from sketch_helper import saveSketch
 canvas = 500
 fps = 50
 
-for angle1 in range(0, 91, 1):
+for angle1 in range(45, 91 + 45, 1):
 
     newPage(canvas, canvas)
     frameDuration(1/fps)
@@ -44,17 +44,32 @@ for angle1 in range(0, 91, 1):
     x24 = centx + thick + sin(radians(angle4)) * radius
     y24 = centy + thick + cos(radians(angle4)) * radius
 
-    line((x11, y11), (x12, y12))
-    line((x12, y12), (x13, y13))
-    line((x13, y13), (x14, y14))
-    line((x14, y14), (x11, y11))
+    if angle1 < 90:
 
-    line((x11, y11), (x21, y21))
-    line((x12, y12), (x22, y22))
-    line((x13, y13), (x23, y23))
+        line((x11, y11), (x12, y12))
+        line((x12, y12), (x13, y13))
+        line((x13, y13), (x14, y14))
+        line((x14, y14), (x11, y11))
 
-    line((x21, y21), (x22, y22))
-    line((x22, y22), (x23, y23))
+        line((x11, y11), (x21, y21))
+        line((x12, y12), (x22, y22))
+        line((x13, y13), (x23, y23))
+
+        line((x21, y21), (x22, y22))
+        line((x22, y22), (x23, y23))
     
+    else:
+        
+        line((x11, y11), (x12, y12))
+        line((x12, y12), (x13, y13))
+        line((x13, y13), (x14, y14))
+        line((x14, y14), (x11, y11))
+
+        line((x11, y11), (x21, y21))
+        line((x12, y12), (x22, y22))
+        line((x14, y14), (x24, y24))
+
+        line((x21, y21), (x22, y22))
+        line((x21, y21), (x24, y24))
 
 saveSketch("draw")
