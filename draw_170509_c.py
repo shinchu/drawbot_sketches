@@ -3,11 +3,11 @@
 from sketch_helper import saveSketch
 
 def cubeRotateH(centx, centy, radius, thick, angle1):
-    
+
     angle2 = angle1 - 90
     angle3 = angle1 + 90
     angle4 = angle1 + 180
-    
+
     x11 = centx + sin(radians(angle2)) * radius
     y11 = centy + cos(radians(angle2)) * radius
     x12 = centx + sin(radians(angle1)) * radius
@@ -39,9 +39,9 @@ def cubeRotateH(centx, centy, radius, thick, angle1):
 
         line((x21, y21), (x22, y22))
         line((x22, y22), (x23, y23))
-    
+
     else:
-        
+
         line((x11, y11), (x12, y12))
         line((x12, y12), (x13, y13))
         line((x13, y13), (x14, y14))
@@ -53,9 +53,9 @@ def cubeRotateH(centx, centy, radius, thick, angle1):
 
         line((x21, y21), (x22, y22))
         line((x21, y21), (x24, y24))
-        
+
 def cubeRotateV1(centx, centy, rx, ry, thick, angle1):
-    
+
     angle2 = 90 + angle1
     angle3 = 180 + angle1
     angle4 = 270 + angle1
@@ -91,23 +91,23 @@ def cubeRotateV1(centx, centy, rx, ry, thick, angle1):
         line((x11, y11), (x21, y21))
         line((x13, y13), (x23, y23))
         line((x14, y14), (x24, y24))
-    
+
     else:
-        
+
         line((x11, y11), (x12, y12))
         line((x12, y12), (x13, y13))
         line((x13, y13), (x14, y14))
         line((x11, y11), (x14, y14))
-        
+
         line((x23, y23), (x24, y24))
         line((x22, y22), (x23, y23))
-        
+
         line((x12, y12), (x22, y22))
         line((x13, y13), (x23, y23))
         line((x14, y14), (x24, y24))
 
 def cubeRotateV2(centx, centy, rx, ry, thick, angle1):
-    
+
     angle2 = 90 + angle1
     angle3 = 180 + angle1
     angle4 = 270 + angle1
@@ -143,17 +143,17 @@ def cubeRotateV2(centx, centy, rx, ry, thick, angle1):
         line((x12, y12), (x22, y22))
         line((x13, y13), (x23, y23))
         line((x14, y14), (x24, y24))
-    
+
     else:
-        
+
         line((x11, y11), (x12, y12))
         line((x12, y12), (x13, y13))
         line((x13, y13), (x14, y14))
         line((x11, y11), (x14, y14))
-        
+
         line((x21, y21), (x22, y22))
         line((x22, y22), (x23, y23))
-        
+
         line((x11, y11), (x21, y21))
         line((x12, y12), (x22, y22))
         line((x13, y13), (x23, y23))
@@ -183,6 +183,6 @@ for angle in range(0, 91, 1):
 
     cubeRotateV2(width()/6 + 30, height()/6, 25, 50, 60, angle)
     cubeRotateH(width()/3 + width()/6-15, height()/6-15, 48, 30, angle + 45)
-    cubeRotateV1(width()*2/3 + width()/6, height()/6 +  30, 50, 25, 60, angle)
-        
+    cubeRotateV1(width()*2/3 + width()/6, height()/6 + 30, 50, 25, 60, angle)
+
 saveSketch("draw")
