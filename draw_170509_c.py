@@ -183,6 +183,6 @@ for angle in range(0, 91, 1):
 
     cubeRotateV2(width()/6 + 30, height()/6, 25, 50, 60, angle)
     cubeRotateH(width()/3 + width()/6-15, height()/6-15, 48, 30, angle + 45)
-    cubeRotateV1(width()*2/3 + width()/6, height()/6 + 30, 50, 25, 60, angle)
+    cubeRotateV1(width()*2/3 + width()/6, height()/6 +  30, 50, 25, 60, angle)
         
 saveSketch("draw")
