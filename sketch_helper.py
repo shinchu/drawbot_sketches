@@ -5,6 +5,7 @@ import datetime
 from drawBot import *
 from robofab.world import *
 from robofab.pens.pointPen import PrintingSegmentPen
+from fontParts.nonelab import RFont
 
 def hexToRGB(hex_value):
 
