@@ -164,6 +164,13 @@ def drawGlyph(x, y, sc, ufo, glyphs):
             for i, segment in enumerate(contour):
                 # curveTo
                 if len(segment.points) == 3:
+                    if i == 0:
+                        if len(contour.segments[-1].points) == 3:
+                            x, y = contour.segments[-1].points[2].x, contour.segments[-1].points[2].y
+                        else:
+                            x, y = contour.segments[-1].points[0].x, contour.segments[-1].points[0].y
+                        B.moveTo((x, y))
+
                     x1, y1 = segment.points[0].x, segment.points[0].y
                     x2, y2 = segment.points[1].x, segment.points[1].y
                     x3, y3 = segment.points[2].x, segment.points[2].y

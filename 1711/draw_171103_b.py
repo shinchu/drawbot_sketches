@@ -7,8 +7,14 @@
 import os, sys
 sys.path.append(os.path.dirname(os.getcwd()))
 from sketch_helper import *
+from fontTools.pens.cocoaPen import CocoaPen
 
 # newDrawing()
+
+def _drawGlyph(glyph):
+    pen = CocoaPen(glyph.getParent())
+    glyph.draw(pen)
+    drawPath(pen.path)
 
 ufo = u"/Users/shu/Downloads/Nemimi_Original.ufo"
 glyphs = ["M"]
@@ -46,9 +52,18 @@ for g in glyphs:
 
         translate((CANVAS - glyphWidth)/2, (CANVAS - glyphHeight)/2)
         
+        stroke(None)
+        fill(red[0], red[1], red[2])
+        scale(sc)
+        _drawGlyph(glyph)
+        
+        scale(1/sc)
+        
         frameDuration(1/12)
         if n == 19:
-             frameDuration(1)
+            frameDuration(1)
+        if n > 19:
+            frameDuration(1)
         
         for contour in glyph:
             for i, segment in enumerate(contour):
@@ -98,11 +113,11 @@ for g in glyphs:
                     strokeWidth(2)
                     stroke(purple[0], purple[1], purple[2])
                     line((a1, i1), (a2, i2))
-                    stroke(orange[0], orange[1], orange[2])
+                    stroke(blue[0], blue[1], blue[2])
                     line((a2, i2), (a3, i3))
                     
                     strokeWidth(2)
-                    stroke(magenta[0], magenta[1], magenta[2])
+                    stroke(green[0], green[1], green[2])
                     line((u1, e1), (u2, e2))
                
                 strokeWidth(3)
