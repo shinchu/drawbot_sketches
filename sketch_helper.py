@@ -96,6 +96,19 @@ def getCPoint(t, (x1, y1), (x2, y2), (x3, y3), (x4, y4)):
     y = y1*C1(t) + y2*C2(t) + y3*C3(t) + y4*C4(t)
     return x, y
 
+# generative process of cubic bezier
+def getCProcess(t, (x1, y1), (x2, y2), (x3, y3), (x4, y4)):
+
+    a1, i1 = x1 + (x2 - x1) * t, y1 + (y2 - y1) * t
+    a2, i2 = x2 + (x3 - x2) * t, y2 + (y3 - y2) * t
+    a3, i3 = x3 + (x4 - x3) * t, y3 + (y4 - y3) * t
+
+    u1, e1 = a1 + (a2 - a1) * t, i1 + (i2 - i1) * t
+    u2, e2 = a2 + (a3 - a2) * t, i2 + (i3 - i2) * t
+
+    o, k = u1 + (u2 - u1) * t, e1 + (e2 - e1) * t
+
+    return a1, i1, a2, i2, a3, i3, u1, e1, u2, e2, o, k
 
 # colors
 # cream = hexToRGB("FEF3DB")
@@ -107,7 +120,6 @@ def getCPoint(t, (x1, y1), (x2, y2), (x3, y3), (x4, y4)):
 # cyan = hexToRGB("41AFC9")
 # blue = hexToRGB("3096F0")
 # purple = hexToRGB("A94CBB")
-
 
 def drawHandle(path, r):
 
