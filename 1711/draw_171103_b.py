@@ -38,7 +38,7 @@ for g in glyphs:
     glyphWidth = glyph.width * sc
     glyphHeight = (yMax - yMin) * sc
     
-    for t in [0.1 * n for n in range(11)]:
+    for t in [0.05 * n for n in range(21)]:
         
         newPage(CANVAS, CANVAS)
         fill(0)
@@ -46,11 +46,9 @@ for g in glyphs:
 
         translate((CANVAS - glyphWidth)/2, (CANVAS - glyphHeight)/2)
         
-        frameDuration(1/10)
-        if n == 9:
-            frameDuration(1/2)
-        # if n == 10:
-        #     frameDuration(1/2)
+        frameDuration(1/12)
+        if n == 19:
+             frameDuration(1)
         
         for contour in glyph:
             for i, segment in enumerate(contour):
@@ -86,11 +84,9 @@ for g in glyphs:
                 x3, y3 = x3 * sc , y3 * sc
                 x4, y4 = x4 * sc , y4 * sc
                 
-
-                
                 a1, i1, a2, i2, a3, i3, u1, e1, u2, e2, o, k = getCProcess(t, (x1, y1), (x2, y2), (x3, y3), (x4, y4))   
                         
-                for t2 in [0.1 * n for n in range(int(t/0.1) + 1)]:
+                for t2 in [0.05 * n for n in range(int(t/0.05) + 1)]:
                 
                     # strokeWidth(2)
                     # stroke(1)
@@ -99,7 +95,7 @@ for g in glyphs:
                     # line((x3, y3), (x4, y4))
                 
                     a1, i1, a2, i2, a3, i3, u1, e1, u2, e2, o, k = getCProcess(t2, (x1, y1), (x2, y2), (x3, y3), (x4, y4))
-                    strokeWidth(1)
+                    strokeWidth(2)
                     stroke(purple[0], purple[1], purple[2])
                     line((a1, i1), (a2, i2))
                     stroke(orange[0], orange[1], orange[2])
@@ -108,22 +104,17 @@ for g in glyphs:
                     strokeWidth(2)
                     stroke(magenta[0], magenta[1], magenta[2])
                     line((u1, e1), (u2, e2))
-
-                    # stroke(1)
-                    # fill(0)
-                    # d = 4
-                    # oval(o - d/2, k - d/2, d, d)
                
-                strokeWidth(2)
+                strokeWidth(3)
                 stroke(1)
                 line((x1, y1), (x2, y2))
                 line((x2, y2), (x3, y3))
                 line((x3, y3), (x4, y4))  
                
-                stroke(1)
-                fill(1)
-                d = 6
-                oval(o - d/2, k - d/2, d, d) 
+                # stroke(1)
+                # fill(1)
+                # d = 6
+                # oval(o - d/2, k - d/2, d, d) 
                 
 saveSketch("draw")
 # endDrawing()
