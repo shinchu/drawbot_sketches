@@ -56,8 +56,6 @@ pen.curveTo((270, 138), (320, 69), (433, 69))
 pen.curveTo((607, 69), (867, 284), (867, 353))
 pen.closePath()
 
-
-
 translate(12, (CANVAS - SIZE * NUMBERS) / 2)
 fill(0.9)
 stroke(0.9)
