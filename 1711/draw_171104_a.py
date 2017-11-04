@@ -70,7 +70,7 @@ def getGlyphPath(glyph):
 ### Variables
 
 ufo = u"/Users/shu/Downloads/Nemimi_Original.ufo"
-glyphs = ["M"]
+glyphs = ["mo-hira"]
 
 font = RFont(ufo)
 upm = font.info.unitsPerEm
@@ -168,11 +168,6 @@ for g in glyphs:
             fill(*WHITE)
             stroke(None)
             oval(x-d/2, y-d/2, d, d)
-
-                # stroke(1)
-                # fill(1)
-                # d = 6
-                # oval(o - d/2, k - d/2, d, d)
 
 saveSketch("draw")
 # endDrawing()
