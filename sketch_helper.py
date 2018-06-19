@@ -3,9 +3,9 @@
 import os
 import datetime
 from drawBot import *
-from robofab.world import *
-from robofab.pens.pointPen import PrintingSegmentPen
-from fontParts.nonelab import RFont
+from fontParts.world import *
+from fontPens.printPen import PrintPen as PrintingSegmentPen
+from fontParts.world import RFont
 
 def hexToRGB(hex_value):
 
@@ -77,10 +77,10 @@ def B1(t): return (1-t)*(1-t)
 def B2(t): return 2*t*(1-t)
 def B3(t): return t*t
 
-def getBPoint(t, (x1, y1), (x2, y2), (x3, y3)):
+def getBPoint(t, p1, p2, p3):
 
-    x = x1*B1(t) + x2*B2(t) + x3*B3(t)
-    y = y1*B1(t) + y2*B2(t) + y3*B3(t)
+    x = p1[0]*B1(t) + p2[0]*B2(t) + p3[0]*B3(t)
+    y = p1[1]*B1(t) + p2[1]*B2(t) + p3[1]*B3(t)
     return x, y
 
 
@@ -90,18 +90,18 @@ def C2(t): return 3*t*(1-t)*(1-t)
 def C3(t): return 3*t*t*(1-t)
 def C4(t): return t*t*t
 
-def getCPoint(t, (x1, y1), (x2, y2), (x3, y3), (x4, y4)):
+def getCPoint(t, p1, p2, p3, p4):
 
-    x = x1*C1(t) + x2*C2(t) + x3*C3(t) + x4*C4(t)
-    y = y1*C1(t) + y2*C2(t) + y3*C3(t) + y4*C4(t)
+    x = p1[0]*C1(t) + p2[0]*C2(t) + p3[0]*C3(t) + p4[0]*C4(t)
+    y = p1[1]*C1(t) + p2[1]*C2(t) + p3[1]*C3(t) + p4[1]*C4(t)
     return x, y
 
 # generative process of cubic bezier
-def getCProcess(t, (x1, y1), (x2, y2), (x3, y3), (x4, y4)):
+def getCProcess(t, p1, p2, p3, p4):
 
-    a1, i1 = x1 + (x2 - x1) * t, y1 + (y2 - y1) * t
-    a2, i2 = x2 + (x3 - x2) * t, y2 + (y3 - y2) * t
-    a3, i3 = x3 + (x4 - x3) * t, y3 + (y4 - y3) * t
+    a1, i1 = p1[0] + (p2[0] - p1[0]) * t, p1[1] + (p2[1] - p1[1]) * t
+    a2, i2 = p2[0] + (p3[0] - p2[0]) * t, p2[1] + (p3[1] - p2[1]) * t
+    a3, i3 = p3[0] + (p4[0] - p3[0]) * t, p3[1] + (p4[1] - p3[1]) * t
 
     u1, e1 = a1 + (a2 - a1) * t, i1 + (i2 - i1) * t
     u2, e2 = a2 + (a3 - a2) * t, i2 + (i3 - i2) * t

@@ -69,7 +69,7 @@ def getGlyphPath(glyph):
 
 ### Variables
 
-ufo = u"/Users/shu/Downloads/Nemimi_Original.ufo"
+ufo = "/Users/shu/Downloads/Nemimi_Vanilla.ufo"
 glyphs = ["mo-hira"]
 
 font = RFont(ufo)
@@ -86,7 +86,9 @@ for g in glyphs:
     glyphWidth = glyph.width * sc
     glyphHeight = (yMax - yMin) * sc
 
-    for t in [1/FPS * n for n in range(FPS+1)]:
+    for i, t in enumerate([1/FPS * n for n in range(FPS+1)]):
+        
+        n = list(range(FPS+1))[i]
 
         newPage(CANVAS, CANVAS)
         fill(*BLACK)
