@@ -197,8 +197,9 @@ def getPath(ufo, glyph):
     pen = PrintingSegmentPen()
     g.draw(pen)
 
-def getGlyphPath(glyph):
-    glyph = glyph
+def getGlyphPath(ufo, glyph):
+    font = RFont(ufo)
+    glyph = font[glyph]
 
     B = BezierPath()
 
