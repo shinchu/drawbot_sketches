@@ -1,4 +1,4 @@
 *.gif
 *.pyc
 .DS_Store
-./.vscode
+.vscode/
