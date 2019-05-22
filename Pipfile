@@ -30,6 +30,7 @@ vanilla = {git = "https://github.com/robotools/vanilla.git",ref = "473af22"}
 drawbot = {git = "https://github.com/typemytype/drawbot.git",ref = "1a9645b"}
 compositor = {git = "https://github.com/robotools/compositor.git",ref = "2fb89d7"}
 extractor = {git = "https://github.com/robotools/extractor.git",ref = "da3c2c9"}
+# ufo-extractor = "*"
 
 [requires]
 python_version = "3.6"
