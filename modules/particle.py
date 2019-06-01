@@ -14,6 +14,8 @@ class Particle:
         self.velocity.set_angle(direction)
         self.gravity = Vector(0, -grav) if grav else Vector(0, 0)
         self.mass = 1
+        self.radius = 0
+        self.bounce = -1
     
     def accelerate(self, accel):
         self.velocity.add_to(accel)
