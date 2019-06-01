@@ -11,6 +11,6 @@ Require [DrawBot.app](http://www.drawbot.com/content/download.html) and [drawBot
 ```
 git clone git@github.com:typemytype/drawbot.git
 cd drawbot
-python setupAsModule.py install
+python setup.py install
 ```
 
