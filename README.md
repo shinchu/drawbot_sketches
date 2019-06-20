@@ -14,3 +14,9 @@ cd drawbot
 python setup.py install
 ```
 
+or
+
+```
+brew/pip install pipenv
+pipenv install
+```
