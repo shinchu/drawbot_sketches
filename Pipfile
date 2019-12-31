@@ -33,4 +33,4 @@ extractor = {git = "https://github.com/robotools/extractor.git",ref = "da3c2c9"}
 # ufo-extractor = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.7.4"

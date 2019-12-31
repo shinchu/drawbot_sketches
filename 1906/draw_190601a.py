@@ -7,7 +7,7 @@ import os
 import sys
 
 mod_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../modules')
-if mod_dir not in sys.path:  
+if mod_dir not in sys.path:
     sys.path.append(mod_dir)
 
 import math
@@ -34,9 +34,9 @@ n_particles = 100
 for frame in range(total_frames):
     db.newPage(CANVAS, CANVAS)
     db.frameDuration(duration)
- 
+
     db.stroke(None)
-    
+
     if len(particles) < n_particles:
         p = Particle(*position, random.uniform(0, 1) * 8 + 5, math.pi / 2 + (random.uniform(0, 1) * 0.2 - 0.1), 0.1)
         p.radius = random.uniform(0, 1) * 5 + 5
@@ -57,7 +57,7 @@ for frame in range(total_frames):
             particles.clear()
         else:
             particles.remove(p)
-    
+
 # Save image
 save_dir = os.path.expanduser('~/Downloads')
 file_name = 'temp.gif'
