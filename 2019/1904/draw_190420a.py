@@ -6,7 +6,7 @@
 import os
 import sys
 
-mod_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../modules')
+mod_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../modules')
 if mod_dir not in sys.path:  
     sys.path.append(mod_dir)
 
