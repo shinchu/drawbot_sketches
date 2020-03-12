@@ -10,19 +10,25 @@ class Particle:
     def __init__(self, x, y, speed, direction, grav=0):
         self.position = Vector(x, y)
         self.velocity = Vector(0, 0)
-        self.velocity.set_length(speed)
-        self.velocity.set_angle(direction)
-        self.gravity = Vector(0, -grav) if grav else Vector(0, 0)
+        self.velocity.length = speed
+        self.velocity.angle = direction
+        self.gravity = Vector(0, -grav)
         self.mass = 1
         self.radius = 0
         self.bounce = -1
     
+    def __repr__(self):
+        return 'Particle(position={}, velocity={}, gravity={})'.format(self.position, self.velocity, self.gravity)
+    
+    def __str__(self):
+        return 'Particle(position={}, velocity={}, gravity={})'.format(self.position, self.velocity, self.gravity)
+    
     def accelerate(self, accel):
-        self.velocity.add_to(accel)
+        self.velocity += accel
 
     def update(self):
-        self.velocity.add_to(self.gravity)
-        self.position.add_to(self.velocity)
+        self.velocity += self.gravity
+        self.position += self.velocity
 
     def angle_to(self, p2):
         return math.atan2(p2.position.y - self.position.y, p2.position.x - self.position.x)
@@ -37,7 +43,7 @@ class Particle:
         grav = Vector(0, 0)
         dist = self.distance_to(p2)
 
-        grav.set_length(p2.mass / (dist ** 2))
-        grav.set_angle(self.angle_to(p2))
+        grav.length = p2.mass / (dist ** 2)
+        grav.angle = self.angle_to(p2)
 
-        self.velocity.add_to(grav)
+        self.velocity += grav

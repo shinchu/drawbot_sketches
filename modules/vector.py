@@ -7,38 +7,54 @@ import math
 
 class Vector:
     def __init__(self, x = 1, y = 0):
-        self.x = x
-        self.y = y
-        self.length = self._get_length()
-        self.angle = self._get_angle()
+        self.__x = x
+        self.__y = y
+        self.__length = self.length
+        self.__angle = self.angle
 
-    def set_x(self, x):
-        self.x = x
-        self.length = self._get_length()
-        self.angle = self._get_angle()
+    def __repr__(self):
+        return 'Vector(x={}, y={}, length={}, angle={})'.format(self.x, self.y, self.length, self.angle)
+    
+    def __str__(self):
+        return '({}, {})'.format(self.x, self.y)
 
-    def set_y(self, y):
-        self.y = y
-        self.length = self._get_length()
-        self.angle = self._get_angle()
+    @property
+    def x(self):
+        return self.__x
+    
+    @property
+    def y(self):
+        return self.__y
 
-    def _get_length(self):
+    @x.setter
+    def x(self, value):
+        self.__x = value
+
+    @y.setter
+    def y(self, value):
+        self.__y = value
+
+    @property
+    def length(self):
         return math.sqrt(self.x ** 2 + self.y ** 2)
 
-    def _get_angle(self):
+    @property
+    def angle(self):
         return math.atan2(self.y, self.x)
 
-    def set_angle(self, angle):
-        length = self._get_length()
-        self.angle = angle
-        self.x = math.cos(angle) * length
-        self.y = math.sin(angle) * length
+    @length.setter
+    def length(self, value):
+        self.__length = value
+        self.update()
 
-    def set_length(self, length):
-        angle = self._get_angle()
-        self.length = length
-        self.x = math.cos(angle) * length
-        self.y = math.sin(angle) * length
+    @angle.setter
+    def angle(self, value):
+        self.__angle = value
+        self.update()
+    
+    def update(self):
+        self.x = math.cos(self.__angle) * self.__length
+        self.y = math.sin(self.__angle) * self.__length
 
     def __add__(self, v2):
         return Vector(self.x + v2.x, self.y + v2.y)
@@ -58,7 +74,7 @@ class Vector:
     def subtract(self, v2):
         return Vector(self.x - v2.x, self.y - v2.y)
 
-    def muliply(self, val):
+    def multiply(self, val):
         return Vector(self.x * val, self.y * val)
     
     def divide(self, val):
@@ -67,24 +83,16 @@ class Vector:
     def add_to(self, v2):
         self.x += v2.x
         self.y += v2.y
-        self.length = self._get_length()
-        self.angle = self._get_angle()
     
     def subtract_from(self, v2):
         self.x -= v2.x
         self.y -= v2.y
-        self.length = self._get_length()
-        self.angle = self._get_angle()
     
-    def muliply_by(self, val):
+    def multiply_by(self, val):
         self.x *= val
         self.y *= val
-        self.length = self._get_length()
-        self.angle = self._get_angle()
     
     def divide_by(self, val):
         self.x /= val
         self.y /= val
-        self.length = self._get_length()
-        self.angle = self._get_angle()
 
