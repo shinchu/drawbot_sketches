@@ -16,29 +16,31 @@ class Particle:
         self.mass = 1
         self.radius = 0
         self.bounce = -1
-    
+        self.friction = 1
+
     def __repr__(self):
         return 'Particle(position={}, velocity={}, gravity={})'.format(self.position, self.velocity, self.gravity)
-    
+
     def __str__(self):
         return 'Particle(position={}, velocity={}, gravity={})'.format(self.position, self.velocity, self.gravity)
-    
+
     def accelerate(self, accel):
         self.velocity += accel
 
     def update(self):
+        self.velocity *= self.friction
         self.velocity += self.gravity
         self.position += self.velocity
 
     def angle_to(self, p2):
         return math.atan2(p2.position.y - self.position.y, p2.position.x - self.position.x)
-    
+
     def distance_to(self, p2):
         dx = p2.position.x - self.position.x
         dy = p2.position.y - self.position.y
 
         return math.sqrt(dx ** 2 + dy ** 2)
-    
+
     def gravitate_to(self, p2):
         grav = Vector(0, 0)
         dist = self.distance_to(p2)

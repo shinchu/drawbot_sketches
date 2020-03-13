@@ -5,32 +5,21 @@ verify_ssl = true
 
 [dev-packages]
 ptpython = "*"
-pylint = "*"
 pyobjc = "*"
-pyobjc-core = "*"
+pylint = "*"
 
 [packages]
-afdko = "*"
-booleanoperations = "*"
-compreffor = "*"
-cu2qu = "*"
-defcon = "*"
-fontmath = "*"
-fontparts = "*"
-fontpens = "*"
-fonttools = "*"
-glyphslib = "*"
-mutatormath = "*"
+drawbot = {git = "https://github.com/typemytype/drawbot.git"}
 numpy = "*"
 scipy = "*"
+afdko = "*"
+defconappkit = {git = "https://github.com/robotools/defconAppKit.git"}
+vanilla = {git = "https://github.com/robotools/vanilla.git"}
+ufo-extractor = "*"
+glyphslib = "*"
 ufo2ft = "*"
-ufolib = "*"
-defconappkit = {git = "https://github.com/robotools/defconAppKit.git",ref = "6dab10d"}
-vanilla = {git = "https://github.com/robotools/vanilla.git",ref = "473af22"}
-drawbot = {git = "https://github.com/typemytype/drawbot.git",ref = "1a9645b"}
-compositor = {git = "https://github.com/robotools/compositor.git",ref = "2fb89d7"}
-extractor = {git = "https://github.com/robotools/extractor.git",ref = "da3c2c9"}
-# ufo-extractor = "*"
+fontdiffenator = "*"
+fontelemetry = {git = "https://github.com/googlefonts/fontelemetry.git"}
 
 [requires]
-python_version = "3.7.4"
+python_version = "3.7.6"
