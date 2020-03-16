@@ -57,7 +57,7 @@ for frame in range(total_frames):
 
 # Save image
 save_dir = os.path.expanduser('~/Downloads')
-file_name = 'temp.gif'
-db.saveImage(os.path.join(save_dir, file_name), imageResolution=72)
+file_name = 'draw.gif'
+db.saveImage(os.path.join(save_dir, file_name), imageResolution=144)
 
 db.endDrawing()
