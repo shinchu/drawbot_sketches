@@ -24,6 +24,10 @@ class Particle:
     def __str__(self):
         return 'Particle(position={}, velocity={}, gravity={})'.format(self.position, self.velocity, self.gravity)
 
+    @property
+    def diameter(self):
+        return self.radius * 2
+
     def accelerate(self, accel):
         self.velocity += accel
 

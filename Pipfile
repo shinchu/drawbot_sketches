@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 pyobjc = "*"
 pylint = "*"
+tqdm = "*"
 
 [packages]
 drawbot = {git = "https://github.com/typemytype/drawbot.git"}

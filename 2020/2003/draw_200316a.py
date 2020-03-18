@@ -7,8 +7,8 @@
 CANVAS = 500
 
 fps = 30
-seconds = 5
-frames = fps * seconds
+sec = 5
+frames = fps * sec
 duration = 1 / fps
 
 for frame in range(frames):
@@ -17,7 +17,7 @@ for frame in range(frames):
 
     stroke(0)
     strokeWidth(1)
-    
+
     if frame < frames / 2:
         bars = CANVAS/100 + (CANVAS/2 - CANVAS/100) * frame / frames
     else:
