@@ -19,51 +19,49 @@ from particle import Particle
 CANVAS = 500
 
 fps = 50
-sec = 30
+sec = 10
 frames = fps * sec
 duration = 1 / fps
 
-position = (CANVAS / 2, 0)
-
 particles = []
-n_particles = 200
+n_particles = 300
 
 for frame in tqdm(range(frames)):
     db.newPage(CANVAS, CANVAS)
     db.frameDuration(duration)
 
-    db.stroke(None)
+    db.stroke(0)
+    db.fill(0)
+    db.rect(0, 0, db.width(), db.height())
 
     if len(particles) < n_particles:
-        if frame < frames / 2:
-            p = Particle(*position, random.uniform(0, 1) * 8 + 5, math.pi / 2 + (random.uniform(0, 1) * 0.2 - 0.1), 0.15)
-            p.radius = random.uniform(0, 1) * 5 + 5
-            p.bounce = -0.9
-            particles.append(p)
+        position = (db.width() * random.uniform(0, 1), db.height())
+        p = Particle(*position, random.uniform(0, 1) * 10 + 5, -math.pi / 2 + (random.uniform(0, 1) * 0.2 - 0.1), 0.2)
+        p.radius = random.uniform(0, 1) * 5 + 5
+        p.bounce = -random.uniform(0.6, 0.9)
+        particles.append(p)
 
     for i, p in enumerate(particles):
         p.update()
 
-        if frame < frames * 0.9:
+        db.stroke(None)
 
-            if p.position.x + p.radius > db.width():
-                p.position.x = db.width() - p.radius
-                p.velocity.x = p.velocity.x * p.bounce
+        if p.position.x + p.radius > db.width():
+            p.position.x = db.width() - p.radius
+            p.velocity.x = p.velocity.x * p.bounce
 
-            if p.position.x - p.radius < 0:
-                p.position.x = p.radius
-                p.velocity.x = p.velocity.x * p.bounce
+        if p.position.x - p.radius < 0:
+            p.position.x = p.radius
+            p.velocity.x = p.velocity.x * p.bounce
 
-            if p.position.y + p.radius > db.height():
-                p.position.y = db.height() - p.radius
-                p.velocity.y = p.velocity.y * p.bounce
+        if p.position.y + p.radius > db.height():
+            p.position.y = db.height() - p.radius
+            p.velocity.y = p.velocity.y * p.bounce
 
+        if frame < frames * 0.7:
             if p.position.y - p.radius < 0:
                 p.position.y = p.radius
                 p.velocity.y = p.velocity.y * p.bounce
-
-        else:
-            p.velocity.y += -20
 
         db.fill(i * 5 / CANVAS, (n_particles - i) * 5 / CANVAS, 0.7, 1)
         db.oval(p.position.x - p.radius, p.position.y - p.radius, p.diameter, p.diameter)
