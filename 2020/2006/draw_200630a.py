@@ -31,7 +31,6 @@ class Triangle:
                                   randomrange(0, height),
                                   randomrange(0, 50),
                                   randomrange(0, math.pi * 2))
-
         self.particleC = Particle(randomrange(0, width),
                                   randomrange(0, height),
                                   randomrange(0, 50),
@@ -81,6 +80,8 @@ for _ in range(50):
 for frame in tqdm(range(frames)):
     db.newPage(CANVAS, CANVAS)
     db.frameDuration(duration)
+    if frame == frames - 1:
+        db.frameDuration(duration * 10)
 
     db.fill(0)
     db.rect(0, 0, CANVAS, CANVAS)
