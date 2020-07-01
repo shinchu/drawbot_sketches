@@ -3,19 +3,13 @@
 # draw_200630a.py
 # 2020-06-30
 #
-import os
-import sys
-
-mod_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../modules')
-if mod_dir not in sys.path:
-    sys.path.append(mod_dir)
-
 import random
-import math
 from tqdm import tqdm
 import drawBot as db
-from particle import Particle
 
+
+def randomrange(minimum, maximum):
+    return minimum + random.random() * (maximum - minimum)
 
 class Walker:
     def __init__(self, width, height, margin=50):
@@ -49,7 +43,7 @@ class Walker:
 
 CANVAS = 500
 fps = 20
-sec = 3
+sec = 5
 frames = fps * sec
 duration = 1 / fps
 
@@ -69,6 +63,6 @@ for frame in tqdm(range(frames)):
     db.stroke(1 - frame/frames, 0, frame/frames, 1 - frame/frames)
 
     for walker in walkers:
-        walker.draw(5)
+        walker.draw(randomrange(1, 20))
 
 db.saveImage('~/Downloads/draw.gif')
