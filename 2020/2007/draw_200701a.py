@@ -41,7 +41,7 @@ class Walker:
 
 
 CANVAS = 500
-fps = 30
+fps = 20
 sec = 3
 frames = fps * sec
 duration = 1 / fps
