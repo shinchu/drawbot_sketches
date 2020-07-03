@@ -13,6 +13,8 @@ def randomrange(minimum, maximum):
 
 class Walker:
     def __init__(self, width, height, margin=50):
+        # self.x = randomrange(margin, width - margin)
+        # self.y = randomrange(margin, height - margin)
         self.x = width / 2
         self.y = height / 2
         self.history = [(self.x, self.y)]
