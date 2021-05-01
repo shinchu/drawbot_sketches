@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # coding: utf-8
-# draw_200630a.py
-# 2020-06-30
+# draw_210501a.py
+# 2021-05-01
 #
 import os
 import sys
