@@ -87,24 +87,26 @@ class Triangle:
 
 CANVAS = 500
 fps = 30
-sec = 1
+sec = 5
 frames = fps * sec
 duration = 1 / fps
 
 triangles = []
-for _ in range(30):
+for _ in range(50):
     triangles.append(Triangle(CANVAS, CANVAS, random.random()))
 
 for frame in tqdm(range(frames)):
     db.newPage(CANVAS, CANVAS)
     db.frameDuration(duration)
+    if frame == frames - 1:
+        db.frameDuration(duration * 2)
 
     db.fill(1)
     db.rect(0, 0, CANVAS, CANVAS)
 
     for triangle in triangles:
         if frame < frames / 2:
-            triangle.update(k=0.02)
+            triangle.update(k=0.03)
         else:
             triangle.replay()
 
