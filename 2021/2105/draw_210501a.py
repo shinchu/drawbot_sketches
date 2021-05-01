@@ -40,6 +40,12 @@ class Triangle:
         self.particleB.friction = friction
         self.particleC.friction = friction
 
+        self._history = {
+            'particleA': [self.particleA.position],
+            'particleB': [self.particleB.position],
+            'particleC': [self.particleC.position]
+        }
+
     def _spring(self, p0, p1, k=0.01, separation=20):
         distance = p0.position - p1.position
         distance.length -= separation
@@ -48,14 +54,26 @@ class Triangle:
         p1.velocity += spring_force
         p0.velocity -= spring_force
 
-    def update(self):
-        self._spring(self.particleA, self.particleB, k=0.02)
-        self._spring(self.particleB, self.particleC)
-        self._spring(self.particleC, self.particleA)
+    def _record(self):
+        self._history['particleA'].append(self.particleA.position)
+        self._history['particleB'].append(self.particleB.position)
+        self._history['particleC'].append(self.particleC.position)
+
+    def update(self, k=0.01):
+        self._spring(self.particleA, self.particleB, k=2*k)
+        self._spring(self.particleB, self.particleC, k=k)
+        self._spring(self.particleC, self.particleA, k=k)
 
         self.particleA.update()
         self.particleB.update()
         self.particleC.update()
+
+        self._record()
+
+    def replay(self):
+        self.particleA.position = self._history['particleA'].pop()
+        self.particleB.position = self._history['particleB'].pop()
+        self.particleC.position = self._history['particleC'].pop()
 
     def draw(self, r=10):
         db.oval(self.particleA.position.x - r, self.particleA.position.y - r, r * 2, r * 2)
@@ -69,28 +87,29 @@ class Triangle:
 
 CANVAS = 500
 fps = 30
-sec = 3
+sec = 1
 frames = fps * sec
 duration = 1 / fps
 
 triangles = []
-for _ in range(50):
+for _ in range(30):
     triangles.append(Triangle(CANVAS, CANVAS, random.random()))
 
 for frame in tqdm(range(frames)):
     db.newPage(CANVAS, CANVAS)
     db.frameDuration(duration)
-    if frame == frames - 1:
-        db.frameDuration(duration * 10)
 
-    db.fill(0)
+    db.fill(1)
     db.rect(0, 0, CANVAS, CANVAS)
 
     for triangle in triangles:
-        triangle.update()
+        if frame < frames / 2:
+            triangle.update(k=0.02)
+        else:
+            triangle.replay()
 
-    db.stroke(1 - frame/frames)
-    db.fill(1 - frame/frames)
+    db.stroke(0)
+    db.fill(0)
 
     for triangle in triangles:
         triangle.draw(2)
