@@ -9,14 +9,12 @@ Glyphs and other stuff drawn with [DrawBot](http://www.drawbot.com/), inspired b
 Require [DrawBot.app](http://www.drawbot.com/content/download.html) and [drawBot](https://github.com/typemytype/drawbot) as module.
 
 ```
-git clone git@github.com:typemytype/drawbot.git
-cd drawbot
-python setup.py install
+pip install git+https://github.com/typemytype/drawbot
 ```
 
 or
 
 ```
-brew/pip install pipenv
-pipenv install
+brew install poetry
+poetry install
 ```
