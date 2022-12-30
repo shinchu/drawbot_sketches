@@ -4,14 +4,13 @@
 # 2021-06-27
 #
 
-import random
 import math
 from tqdm import tqdm
 import drawBot as db
 from perlin_noise import PerlinNoise
 
 CANVAS = 500
-FPS = 30
+FPS = 15
 DURATION = 3
 FRAMES = FPS * DURATION
 
@@ -19,6 +18,8 @@ FRAMES = FPS * DURATION
 for frame in tqdm(range(FRAMES)):
 
     db.newPage(CANVAS, CANVAS)
+    db.frameDuration(1)
+
     # Ai-iro
     db.fill(0, 76/255, 113/255)
     db.stroke(None)
