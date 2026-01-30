@@ -8,7 +8,7 @@ authors = ["Shin Chu <cougousei@gmail.com>"]
 python = "^3.7"
 drawbot = {git = "https://github.com/typemytype/drawbot"}
 numpy = "^1.20.2"
-tqdm = "^4.60.0"
+tqdm = "^4.66.3"
 perlin-noise = "^1.7"
 
 [tool.poetry.dev-dependencies]
