@@ -49,7 +49,7 @@ def drawPixel(width, height, size, numbers, pixel_address):
 def saveSketch(filename):
 
     date = str(datetime.date.today().strftime("%y%m%d"))
-    filename = "/Users/shu/Downloads/" + filename + "_" + date
+    filename = os.path.expanduser("~/Downloads/") + filename + "_" + date
     suffix = 2
 
     if os.path.exists(filename + ".gif"):
@@ -62,7 +62,7 @@ def saveSketch(filename):
 def savePNG(filename):
 
     date = str(datetime.date.today().strftime("%y%m%d"))
-    filename = "/Users/shu/Downloads/" + filename + "_" + date
+    filename = os.path.expanduser("~/Downloads/") + filename + "_" + date
     suffix = 2
 
     if os.path.exists(filename + ".png"):
